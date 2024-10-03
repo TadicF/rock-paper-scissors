@@ -1,6 +1,3 @@
-let humanScore = 0;
-let computerScore = 0;
-
 function getComputerChoice() {
   let max = 3;
   let computerChoice = Math.floor(Math.random() * max);
@@ -31,25 +28,57 @@ function playRound(humanChoice, computerChoice) {
    || (humanChoice == "Paper" && computerChoice == "Rock") 
    || (humanChoice == "Scissors" && computerChoice == "Paper")) 
    {
-    humanScore++;
-    console.log(`You won! ${humanChoice} beats ${computerChoice}`)
+    return "player";
    }
 
   else if((computerChoice == "Rock" && humanChoice == "Scissors") 
       || (computerChoice == "Paper" && humanChoice == "Rock") 
       || (computerChoice == "Scissors" && humanChoice == "Paper")) 
   {
-    computerScore++;
-    console.log(`You lose! ${computerChoice} beats ${humanChoice}`)
+    return "computer";
   }
   else {
-    console.log(`It's a draw!`);
+    return "tie";
   }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame() {
+  let humanScore = 0;
+  let computerScore = 0;
 
-playRound(humanSelection, computerSelection);
+  for(let i = 0; i < 5; i++) {
+  let humanSelection = getHumanChoice();
+  let computerSelection = getComputerChoice();
+  let result = playRound(humanSelection, computerSelection);
+  
+    if(result === "player") {
+      humanScore++;
+      console.log(`You won the round! ${humanSelection} beats ${computerSelection}`);
+      console.log(`Human Score: ${humanScore} | Computer Score: ${computerScore}`);
+    }
+    
+    else if(result === "computer") {
+      computerScore++;
+      console.log(`You lose the round! ${computerSelection} beats ${humanSelection}`);
+      console.log(`Human Score: ${humanScore} | Computer Score: ${computerScore}`);
+    }
+    
+    else if(result === "tie") {
+      console.log(`It's a tie!`);
+      console.log(`Human Score: ${humanScore} | Computer Score: ${computerScore}`);
+    }
+  }
+  
+  if(humanScore > computerScore) {
+    console.log(`You won the game!`);
+  }
+  else if(computerScore > humanScore) {
+    console.log(`You lose the game!`);
+  }
+  else {
+    console.log(`It's a draw.`);
+  }
+  
+}
 
-
+playGame();
