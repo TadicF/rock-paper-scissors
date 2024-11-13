@@ -4,9 +4,33 @@
   <head>
     <meta charset="UTF-8">
     <title>Rock Paper Scissors</title>
-    <script src="javascript.js"></script>
+    <script src="javascript.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
   </head>
   
   <body>
+    <div class="buttons">
+      <button id="rock">R</button>
+      <button id="paper">P</button>
+      <button id="scissors">S</button>
+    </div>
+
+    <div id="score">
+      <div id="playerScore">
+        <div class="playerOne">You</div>
+        <div class="playerOneScore">0</div>
+      </div>
+      <div id="aiScore">
+        <div class="playerTwo">AI</div>
+        <div class="playerTwoScore">0</div>
+      </div>
+    </div>
+    
+    <div id="results">
+      
+    </div>
   </body>
 </html>
